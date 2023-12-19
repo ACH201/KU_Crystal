@@ -57,6 +57,7 @@
             }
         });*/
         const df = new dfd.readCSV("./database/LectureTable.csv");
+        console.log(df)
         const dfJSON = dfd.toJSON(df, { format: 'row' }); // DataFrame을 JSON 문자열로 변환                    
         localStorage.setItem(csvFileName, JSON.stringify(dfJSON));
         
