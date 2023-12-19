@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/danfojs@1.1.2/lib/bundle.min.js"></script>
+    <title>빈 강의실 찾기</title>
+    <link rel="stylesheet" href="../css/empty_room.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- 이전 페이지로 돌아가는 버튼 -->
+      <button onclick="window.history.back();" id="back-button">
+        이전 페이지로
+      </button>
+
+      <!-- 제목 -->
+      <h1 id="title">빈 강의실 찾기</h1>
+      <div class="dropset">
+        <div class="pair">
+          <!-- 드롭박스 제목 -->
+          <h3 id="text1">단과대학 선택</h3>
+
+          <!-- 아이템 드롭박스 -->
+          <select id="buildings">
+            <option value="문">문과대학</option>
+            <option value="이">이과대학</option>
+            <option value="공A">공과대학A</option>
+            <option value="공B">공과대학B</option>
+            <option value="공C">공과대학C</option>
+            <option value="공D">공과대학D</option>
+            <option value="신공">공과대학(신공)</option>
+            <option value="종강">법학관(종합강의동)</option>
+            <option value="경영">경영대학(사회과학관)</option>
+            <option value="동">동물생명과학대학</option>
+            <option value="산학">산학협동관</option>
+            <option value="생">생명환경과학대학</option>
+            <option value="수">수의과대학</option>
+            <option value="부">해봉부동산학관</option>
+            <option value="건">건축대학</option>
+            <option value="예">예술문화대학</option>
+            <option value="공예">공예관</option>
+            <option value="사">교육과학관</option>
+            <!--option value="언어원">언어교육원</option-->
+            <option value="새">새천년관</option>
+            <!--option value="종강">종합강의동</option-->
+            <option value="중장비">중장비 실험동</option>
+            <option value="상허관">상허연구관</option>
+            <option value="창">창의관</option>
+          </select>
+        </div>
+        <div class="pair">
+          <!-- 드롭박스 제목 -->
+          <h3 id="text2">시간 선택</h3>
+
+          <!-- 아이템 드롭박스 -->
+          <select id="time">
+            <option value="1">1         (09:00 ~ 09:30)</option>
+            <option value="2">2         (09:30 ~ 10:00)</option>
+            <option value="3">3         (10:00 ~ 10:30)</option>
+            <option value="4">4         (10:30 ~ 11:00)</option>
+            <option value="5">5         (11:00 ~ 11:30)</option>
+            <option value="6">6         (11:30 ~ 12:00)</option>
+            <option value="7">7         (12:00 ~ 12:30)</option>
+            <option value="8">8         (12:30 ~ 13:00)</option>
+            <option value="9">9         (13:00 ~ 13:30)</option>
+            <option value="10">10       (13:30 ~ 14:00)</option>
+            <option value="11">11       (14:00 ~ 14:30)</option>
+            <option value="12">12       (14:30 ~ 15:00)</option>
+            <option value="13">13       (15:00 ~ 15:30)</option>
+            <option value="14">14       (15:30 ~ 16:00)</option>
+            <option value="15">15       (16:00 ~ 16:30)</option>
+            <option value="16">16       (16:30 ~ 17:00)</option>
+            <option value="17">17       (17:00 ~ 17:30)</option>
+            <option value="18">18       (17:30 ~ 18:00)</option>
+            <option value="19">19       (18:00 ~ 18:30)</option>
+            <option value="20">20       (18:30 ~ 19:00)</option>
+            <option value="21">21       (19:00 ~ 19:30)</option>
+            <option value="22">22       (19:30 ~ 20:00)</option>
+            <option value="23">23       (20:00 ~ 20:30)</option>
+          </select>
+        </div>
+        <div class="pair">
+          <!-- 드롭박스 제목 -->
+          <h3 id="text3">요일 선택</h3>
+
+          <!-- 아이템 드롭박스 -->
+          <select id="day">
+            <option value="월">월</option>
+            <option value="화">화</option>
+            <option value="수">수</option>
+            <option value="목">목</option>
+            <option value="금">금</option>
+            <option value="토">토</option>
+          </select>
+        </div>
+      </div>
+      <!-- 출력 버튼 -->
+      <button id="output-button" onclick="button_click_event()">출력</button>
+
+      <h4 id="result"></h4>
+      <table id="timetable" cellspacing='10'>
+      <tbody></tbody>
+      </table>
+    </div>
+
+    <script src="../js/empty_room.js"></script>
+  </body>
+</html>

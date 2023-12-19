@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/danfojs@1.1.2/lib/bundle.min.js"></script>
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <title>시간별 강의 분포 확인</title>
+    <link rel="stylesheet" href="../css/lecture_stat.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- 이전 페이지로 돌아가는 버튼 -->
+      <button onclick="window.history.back();" id="back-button">
+        이전 페이지로
+      </button>
+
+      <!-- 제목 -->
+      <h1 id="title">시간별 강의 분포 확인</h1>
+      <div class="dropset">
+        <div class="pair">
+          <!-- 드롭박스 제목 -->
+          <h3 id="text1">단과대학 선택</h3>
+
+          <!-- 아이템 드롭박스 -->
+          <select id="schools" onchange="update_majors()">
+            <option value="전체">전체</option>
+            <option value="문과대학">문과대학</option>
+            <option value="이과대학">이과대학</option>
+            <option value="건축대학">건축대학</option>
+            <option value="공과대학">공과대학</option>
+            <option value="사회과학대학">사회과학대학</option>
+            <option value="경영대학">경영대학</option>
+            <option value="부동산과학원">부동산과학원</option>
+            <option value="KU융합과학기술원">KU융합과학기술원</option>
+            <option value="상허생명과학대학">상허생명과학대학</option>
+            <option value="수의과대학">수의과대학</option>
+            <option value="예술디자인대학">예술디자인대학</option>
+            <option value="사범대학">사범대학</option>
+          </select>
+        </div>
+        <div class="pair">
+          <!-- 드롭박스 제목 -->
+          <h3 id="text2">학과 선택</h3>
+
+          <!-- 아이템 드롭박스 -->
+          <select id="majors" disabled>
+            <option value="전체">전체</option>
+          </select>
+        </div>
+        <div class="pair">
+          <!-- 드롭박스 제목 -->
+          <h3 id="text3">학년 선택</h3>
+
+          <!-- 아이템 드롭박스 -->
+          <select id="grades" disabled>
+            <option value="전체">전체</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 출력 버튼 -->
+      <button id="output-button" onclick="button_click_event()">출력</button>
+
+      <h4 id="result"></h4>
+      <div id="plot"></div>
+
+      <script src="../js/lecture_stat.js"></script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/danfojs@1.1.2/lib/bundle.min.js"></script>
+    <title>강의실 일주일 시간표 조회</title>
+    <link rel='stylesheet' href='../css/room_timetable.css' />
+</head>
+
+<body>
+    <div class="container">
+      <!-- 이전 페이지로 돌아가는 버튼 -->
+      <button onclick="window.history.back();" id="back-button">
+        이전 페이지로
+      </button>
+
+      <!-- 제목 -->
+      <h1 id="title">강의실 일주일 시간표 조회</h1>
+
+      <div class="dropset">
+        <div class="pair">
+          <!-- 드롭박스 제목 -->
+          <h3 id="text1">강의동 선택</h3>
+
+          <!-- 아이템 드롭박스 -->
+          <select id="buildings" onchange="update_searchOptions(this.value)">
+            <option value="문">문과대학</option>
+            <option value="이">이과대학</option>
+            <option value="공A">공과대학A</option>
+            <option value="공B">공과대학B</option>
+            <option value="공C">공과대학C</option>
+            <option value="공D">공과대학D</option>
+            <option value="신공">공과대학(신공)</option>
+            <option value="종강">법학관(종합강의동)</option>
+            <option value="경영">경영대학(사회과학관)</option>
+            <option value="동">동물생명과학대학</option>
+            <option value="산학">산학협동관</option>
+            <option value="생">생명환경과학대학</option>
+            <option value="수">수의과대학</option>
+            <option value="부">해봉부동산학관</option>
+            <option value="건">건축대학</option>
+            <option value="예">예술문화대학</option>
+            <option value="공예">공예관</option>
+            <option value="사">교육과학관</option>
+            <!--option value="언어원">언어교육원</option-->
+            <option value="새">새천년관</option>
+            <!--option value="종강">종합강의동</option-->
+            <option value="중장비">중장비 실험동</option>
+            <option value="상허관">상허연구관</option>
+            <option value="창">창의관</option>
+          </select>
+        </div>
+        <div class="pair">
+          <!-- 드롭박스 제목 -->
+          <h3 id="text2">강의실 입력</h3>
+
+          <!-- 사용자 입력창 -->
+          <input
+            type="text"
+            id="user-input"
+            placeholder="입력하세요..."
+            ,
+            list="searchOptions"
+          />
+
+          <datalist id="searchOptions"> </datalist>
+        </div>
+      </div>
+      <!-- 출력 버튼 -->
+      <button id="output-button" onclick="button_click_event()">출력</button>
+
+      <h2 id="room_text">정보를 입력해주세요</h2>
+
+      <table id="timetable" border="1">
+        <thead>
+          <tr>
+            <th>시간/요일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 데이터 행이 여기에 추가됩니다 -->
+        </tbody>
+      </table>
+
+
+    <script src="../js/room_timetable.js"></script>
+    </div>
+</body>
+</html>

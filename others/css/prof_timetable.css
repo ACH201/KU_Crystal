@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  font-family: "Do Hyeon", sans-serif;
+}
+
+#back-button {
+  align-self: flex-start;
+  margin: 10px;
+}
+
+#title {
+  margin-top: 50px;
+}
+
+#text1 {
+  margin-bottom: 5px;
+}
+
+#user-input {
+  margin-top: 5px;
+  width: 300px;
+  padding: 5px;
+}
+
+#output-button {
+  margin: 30px;
+  width: 150px;
+  padding: 5px;
+  font-family: "Do Hyeon", sans-serif;
+}
+
+#prof_text {
+  margin-bottom: 10px;
+}
+
+#timetable {
+  width: auto;
+  border-collapse: collapse;
+  table-layout: fixed; /* 셀의 너비를 고정 */
+  margin-bottom: 40px;
+}
+
+#timetable th,
+#timetable td {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+  width: 150px;
+}
+
+#timetable th {
+  background-color: lightgray;
+  color: black;
+}

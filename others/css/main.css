@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.container {
+  text-align: center;
+}
+
+#image {
+  margin-bottom: 20px;
+}
+
+button {
+  display: block;
+  margin: 15px auto;
+  width: 500px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 25px;
+  font-family: "Do Hyeon", sans-serif;
+  background-color: #007500;
+  border-radius: 30px;
+  color: white;
+  box-shadow: 4px 4px 6px lightgrey;
+}
+
+button:hover {
+  display: block;
+  margin: 15px auto;
+  width: 500px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 25px;
+  font-family: "Do Hyeon", sans-serif;
+  background-color: #009000;
+  border-radius: 30px;
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+}
+
+.btn-upload {
+  display: block;
+  margin: 15px auto;
+  width: 500px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 25px;
+  font-family: "Do Hyeon", sans-serif;
+  background-color: #007500;
+  border-radius: 30px;
+  color: white;
+  box-shadow: 4px 4px 6px lightgrey;
+  &:hover {
+    background: #009000;
+    color: white;
+  }
+}
+
+#file {
+  display: none;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #666;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

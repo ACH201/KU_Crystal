@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+
+#body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  font-family: "Do Hyeon", sans-serif;
+}
+
+.dropset {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.pair {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  margin: 10px;
+}
+
+#back-button {
+  align-self: flex-start;
+  margin: 10px;
+}
+
+#title {
+  margin-top: 50px;
+}
+
+#text1,
+#text2,
+#text3 {
+  margin-bottom: 5px;
+}
+
+#schools,
+#majors,
+#grades {
+  margin-top: 5px;
+  width: 300px;
+  padding: 5px;
+}
+
+#output-button {
+  margin: 30px;
+  width: 150px;
+  padding: 5px;
+  font-family: "Do Hyeon", sans-serif;
+}
+
+#plot-title {
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+
+#plot {
+  margin-top: 0px;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 1070;
+  display: block;
+}

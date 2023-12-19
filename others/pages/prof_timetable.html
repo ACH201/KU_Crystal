@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />    
+    <script src="https://cdn.jsdelivr.net/npm/danfojs@1.1.2/lib/bundle.min.js"></script>
+    <title>교수님 일주일 시간표 조회</title>
+    <link rel="stylesheet" href="../css/prof_timetable.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- 이전 페이지로 돌아가는 버튼 -->
+      <button onclick="window.history.back();" id="back-button">
+        이전 페이지로
+      </button>
+
+      <!-- 제목 -->
+      <h1 id="title">교수님 일주일 시간표 조회</h1>
+
+      <!-- 드롭박스 제목 -->
+      <h3 id="text1">교수님 입력</h3>
+
+      <!-- 사용자 입력창 -->
+      <input
+        type="text"
+        id="user-input"
+        placeholder="입력하세요..."
+        ,
+        list="searchOptions"
+      />
+
+      <datalist id="searchOptions"> </datalist>
+      <!-- 출력 버튼 -->
+      <button id="output-button" onclick="button_click_event()">출력</button>
+
+      <h2 id="prof_text">이름을 입력해주세요</h2>
+
+      <table id="timetable" border="1">
+        <thead>
+          <tr>
+            <th>시간/요일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 데이터 행이 여기에 추가됩니다 -->
+        </tbody>
+      </table>
+
+      <script src="../js/prof_timetable.js"></script>
+    </div>
+  </body>
+</html>
