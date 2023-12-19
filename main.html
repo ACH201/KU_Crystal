@@ -35,12 +35,12 @@
         const inputFile = document.getElementById('file');
         
         // 파일 선택 시 실행되는 함수
-        inputFile.addEventListener("change", async () => {
+        /*inputFile.addEventListener("change", async () => {
             localStorage.clear()
             const csvFile = inputFile.files[0];
             const csvFileName = inputFile.files[0].name;
             try {
-                const df = await dfd.readCSV(/*csvFile*/"./database/LectureTable.csv"); // CSV 파일을 DataFrame으로 읽기
+                const df = await dfd.readCSV(csvFile"./database/LectureTable.csv"); // CSV 파일을 DataFrame으로 읽기
                 // DataFrame을 JSON 문자열로 직접 변환하여 local storage에 'DataTable' 키로 저장
                 const dfJSON = dfd.toJSON(df, { format: 'row' }); // DataFrame을 JSON 문자열로 변환                    
                 localStorage.setItem(csvFileName, JSON.stringify(dfJSON));
@@ -55,8 +55,19 @@
             } catch (error) {
                 console.error('파일을 읽는 중 오류가 발생했습니다:', error);
             }
-        });
-        try {
+        });*/
+        const df = new dfd.readCSV("./database/LectureTable.csv");
+        const dfJSON = dfd.toJSON(df, { format: 'row' }); // DataFrame을 JSON 문자열로 변환                    
+        localStorage.setItem(csvFileName, JSON.stringify(dfJSON));
+        
+        // Optional: 저장 후 콘솔에 메시지 출력
+        console.log('CSV 파일이 local storage에 저장되었습니다.');
+        df.print();
+        window.df = df;
+        df.asType('학년', 'string')
+        document.querySelector('#filename').innerHTML = '입력된 파일명: ' + csvFileName
+        
+        try{
             const fname = localStorage.key(0)
             if (fname === null) {throw "파일이 없습니다."} 
             else{
