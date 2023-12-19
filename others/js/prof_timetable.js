@@ -1,6 +1,6 @@
 // 'DataTable' 키에서 JSON 문자열로 저장된 데이터를 가져와서 사용
 try {
-    const df = new dfd.readCSV("https://raw.githubusercontent.com/ACH201/KU_Crystal/main/database/LectureTable.csv");
+    let df = new dfd.readCSV("https://raw.githubusercontent.com/ACH201/KU_Crystal/main/database/LectureTable.csv");
     console.log('기존 데이터가 로드되었습니다:');
     window.df = df;
     df.asType('학년', 'string')
