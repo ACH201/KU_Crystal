@@ -1,4 +1,4 @@
-git push -u origin main<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>메인 페이지</title>
@@ -40,7 +40,7 @@ git push -u origin main<!DOCTYPE html>
             const csvFile = inputFile.files[0];
             const csvFileName = inputFile.files[0].name;
             try {
-                const df = await dfd.readCSV(/*csvFile*/"https://github.com/ACH201/KU_Crystal/blob/88548fda4a9e27a721a4fdd86761276a5f7518ef/database/LectureTable.csv"); // CSV 파일을 DataFrame으로 읽기
+                const df = await dfd.readCSV(/*csvFile*/"https://github.com/ACH201/KU_Crystal/blob/c7ef46f6f5c1aa95186f72e33c788228b71b0497/database/LectureTable.csv"); // CSV 파일을 DataFrame으로 읽기
                 // DataFrame을 JSON 문자열로 직접 변환하여 local storage에 'DataTable' 키로 저장
                 const dfJSON = dfd.toJSON(df, { format: 'row' }); // DataFrame을 JSON 문자열로 변환                    
                 localStorage.setItem(csvFileName, JSON.stringify(dfJSON));
