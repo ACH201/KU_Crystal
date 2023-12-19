@@ -1,7 +1,6 @@
 // 'DataTable' 키에서 JSON 문자열로 저장된 데이터를 가져와서 사용
 try {
-    const dfJSON = localStorage.getItem(localStorage.key(0));
-    const df = new dfd.DataFrame(JSON.parse(dfJSON)); // JSON 문자열을 파싱하여 DataFrame으로 변
+    const df = new dfd.readCSV("https://raw.githubusercontent.com/ACH201/KU_Crystal/main/database/LectureTable.csv");
     console.log('기존 데이터가 로드되었습니다:');
     window.df = df;
     df.asType('학년', 'string')
