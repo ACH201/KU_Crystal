@@ -89,7 +89,7 @@ const times = document.querySelector("#time");
 const resultArea = document.querySelector("#result");
 
 function button_click_event() {
-    const loadingHTML = "<span class='letter'>로</span><span class='letter'>딩</span><span class='letter'>중</span><span class='letter'>.</span><span class='letter'>.</span><span class='letter'>. </span><span class='letter'>잠</span><span class='letter'>시</span><span class='letter'>만 </span><span class='letter'>기</span><span class='letter'>다</span><span class='letter'>려 </span><span class='letter'>주</span><span class='letter'>세</span><span class='letter'>요</span><span class='letter'>.</span>";
+    const loadingHTML = "<span class='letter'>로</span><span class='letter'>딩</span><span class='letter'>중</span><span class='letter'>.</span><span class='letter'>.</span><span class='letter'>. </span><span class='letter'>잠</span><span class='letter'>시</span><span class='letter'>만 </span><span class='letter'>기</span><span class='letter'>다</span><span class='letter'>려 </span><span class='letter'>주</span><span class='letter'>세</span><span class='letter'>요</span><span class='letter'>.</span>";
     resultArea.innerHTML = loadingHTML
 
     setTimeout(() => {
