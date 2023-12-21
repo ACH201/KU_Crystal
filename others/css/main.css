@@ -1,90 +1,80 @@
-@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&family=Orbit&display=swap");
 
-body,
-html {
-  height: 100%;
+body {
+  font-family: "Jua", sans-serif;
+  background-color: #fff;
+  color: #000;
+  margin: 0 auto;
+  padding: 40px;
+}
+.title-container {
+  margin-left: 37%; /* 좌측 여백을 추가합니다 */
+  margin-bottom: 20px; /* 버튼 영역과의 거리를 조정합니다 */
+  width: 400px;
+  text-align: left;
+}
+.emphasis {
+  font-size: 68px; /* 강조 텍스트에 대한 폰트 크기 */
+  color: #007500; /* 강조 텍스트에 대한 색상 */
+  font-weight: bold; /* 텍스트를 더 두껍게 */
   margin: 0;
-  padding: 20px 0;
+  line-height: 1.2;
+  line-height: 0.95;
+}
+.normal {
+  font-size: 55px; /* 기본 텍스트에 대한 폰트 크기 */
+  color: #000; /* 기본 텍스트에 대한 색상 */
+  margin: 0;
+  line-height: 1.2;
+  line-height: 0.95;
+}
+
+.btn-container {
+  width: 500px;
+  margin: 30px auto;
+  background-color: #98bf64;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.button:hover {
+  background-color: #e8e8e8;
+}
+.button {
   display: flex;
-  justify-content: center;
-  align-items: start;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none; /* If the button is a link */
 }
-
-.container {
-  text-align: center;
+.button-icon-text {
+  display: flex;
+  align-items: center;
 }
-
-#image {
-  margin-bottom: 20px;
+.button-icon {
+  margin-right: 10px; /* Space between the icon and the text */
 }
-
-button {
-  display: block;
-  margin: 15px auto;
-  width: 500px;
-  padding: 10px;
-  box-sizing: border-box;
+.button-text {
+  margin-right: auto; /* Pushes the chevron to the right */
+  margin-left: 20px;
   font-size: 25px;
-  font-family: "Do Hyeon", sans-serif;
-  background-color: #007500;
-  border-radius: 30px;
-  color: white;
-  box-shadow: 4px 4px 6px lightgrey;
 }
-
-button:hover {
-  display: block;
-  margin: 15px auto;
-  width: 500px;
-  padding: 10px;
-  box-sizing: border-box;
-  font-size: 25px;
-  font-family: "Do Hyeon", sans-serif;
-  background-color: #009000;
-  border-radius: 30px;
-  color: white;
+.button-chevron {
+  font-size: 24px; /* Chevron size */
+  color: #333; /* Chevron color */
 }
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 25px 0;
+.button::after {
+  content: ">"; /* This is the chevron */
+  font-size: 24px; /* Chevron size */
+  color: lightgrey; /* Chevron color */
 }
-
-.btn-upload {
-  display: block;
-  margin: 15px auto;
-  width: 500px;
-  padding: 10px;
-  box-sizing: border-box;
-  font-size: 25px;
-  font-family: "Do Hyeon", sans-serif;
-  background-color: #007500;
-  border-radius: 30px;
-  color: white;
-  box-shadow: 4px 4px 6px lightgrey;
-  &:hover {
-    background: #009000;
-    color: white;
-  }
-}
-
-#file {
-  display: none;
-}
-
-th,
-td {
-  text-align: center;
-  padding: 8px;
-  border: 1px solid #ddd;
-}
-
-th {
-  background-color: #666;
-  color: white;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
+#credit {
+    text-align: center;
 }

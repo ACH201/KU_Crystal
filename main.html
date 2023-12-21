@@ -6,81 +6,59 @@
     <script src="https://cdn.jsdelivr.net/npm/danfojs@1.1.2/lib/bundle.min.js"></script>
 </head>
 <body>
-    <div class="container">
-    <a href="https://konkuk.ac.kr">
-        <img id="image" src="./others/UI_Mark.jpg" alt="logo" width="300px">
-    </a>
-        <!-- Button 1 -->
-        <button onclick="window.location.href='./others/pages/empty_room.html';">빈 강의실 조회</button>
-
-        <!-- Button 2 -->
-        <button onclick="window.location.href='./others/pages/room_timetable.html';">강의실 일주일 시간표 조회</button>
-
-        <!-- Button 3 -->
-        <button onclick="window.location.href='./others/pages/prof_timetable.html';">교수님 일주일 시간표 조회</button>
-
-        <!-- Button 4 -->
-        <button onclick="window.location.href='./others/pages/lecture_stat.html';">시간별 강의 분포 확인하기</button>
-
-        <!-- Button 5 -->
-        <label for="file">
-            <div class="btn-upload">파일 업로드하기</div>
-        </label>
-        <input type="file" accept=".csv" id="file" name="file">
-        <h3 id="filename"></h3>
+    <div class="title-container">
+      <div class="line">
+        <span class="emphasis">건</span>
+        <span class="normal">국대</span>
+      </div>
+      <div class="line">
+        <span class="emphasis">수</span>
+        <span class="normal">업의 모든</span>
+      </div>
+      <div class="line">
+        <span class="emphasis">정</span>
+        <span class="normal">보를 알려준다!</span>
+      </div>
+      </div>
     </div>
+    <div class="btn-container">
+      <div class="button" onclick="window.location.href='pages/empty_room.html';">
+        <img src="rss/emptyroom.png" width="30" />
+        <span class="button-text">빈 강의실 조회하기</span>
+      </div>
+      <div class="button" onclick="window.location.href='pages/room_timetable.html';">
+        <img src="rss/roomtime.png" width="30" />
+        <span class="button-text">강의실 일주일 시간표 조회하기</span>
+      </div>
+      <div class="button" onclick="window.location.href='pages/prof_timetable.html';">
+        <img src="rss/prof.png" width="30" />
+        <span class="button-text">교수님 일주일 시간표 조회하기</span>
+      </div>
+      <div class="button" onclick="window.location.href='pages/lecture_stat.html';">
+        <img src="rss/stat.png" width="30" />
+        <span class="button-text">시간표 강의 분포 확인하기</span>
+      </div>
+      <!-- Repeat for other buttons -->
+    </div>
+    <h3 id="credit">Project-X Konkuk 2진법</h3>
 
     <script>
-        // 파일 입력(input) 요소를 inputFile 변수에 할당
-        const inputFile = document.getElementById('file');
-        
         try {
-                const df = await dfd.readCSV("https://raw.githubusercontent.com/ACH201/KU_Crystal/main/database/LectureTable.csv"); // CSV 파일을 DataFrame으로 읽기
-                // DataFrame을 JSON 문자열로 직접 변환하여 local storage에 'DataTable' 키로 저장
-                const dfJSON = dfd.toJSON(df, { format: 'row' }); // DataFrame을 JSON 문자열로 변환                    
-                localStorage.setItem(csvFileName, JSON.stringify(dfJSON));
-                
-                // Optional: 저장 후 콘솔에 메시지 출력
-                console.log('CSV 파일이 local storage에 저장되었습니다.');
-                df.print();
-                window.df = df;
-                df.asType('학년', 'string')
-
-                document.querySelector('#filename').innerHTML = '입력된 파일명: ' + csvFileName
-            } catch (error) {
-                console.error('파일을 읽는 중 오류가 발생했습니다:', error);
-            }
-        // 파일 선택 시 실행되는 함수
-        inputFile.addEventListener("change", async () => {
             localStorage.clear()
-            const csvFile = inputFile.files[0];
-            const csvFileName = inputFile.files[0].name;
-            try {
-                const df = await dfd.readCSV(csvFile); // CSV 파일을 DataFrame으로 읽기
-                // DataFrame을 JSON 문자열로 직접 변환하여 local storage에 'DataTable' 키로 저장
-                const dfJSON = dfd.toJSON(df, { format: 'row' }); // DataFrame을 JSON 문자열로 변환                    
-                localStorage.setItem(csvFileName, JSON.stringify(dfJSON));
-                
-                // Optional: 저장 후 콘솔에 메시지 출력
-                console.log('CSV 파일이 local storage에 저장되었습니다.');
-                df.print();
-                window.df = df;
-                df.asType('학년', 'string')
+            const df = await dfd.readCSV("https://raw.githubusercontent.com/ACH201/KU_Crystal/main/database/LectureTable.csv"); // CSV 파일을 DataFrame으로 읽기
+            // DataFrame을 JSON 문자열로 직접 변환하여 local storage에 'DataTable' 키로 저장
+            const dfJSON = dfd.toJSON(df, { format: 'row' }); // DataFrame을 JSON 문자열로 변환                    
+            localStorage.setItem(csvFileName, JSON.stringify(dfJSON));
+            
+            // Optional: 저장 후 콘솔에 메시지 출력
+            console.log('CSV 파일이 local storage에 저장되었습니다.');
+            df.print();
+            window.df = df;
+            df.asType('학년', 'string')
 
-                document.querySelector('#filename').innerHTML = '입력된 파일명: ' + csvFileName
-            } catch (error) {
-                console.error('파일을 읽는 중 오류가 발생했습니다:', error);
-            }
-        });
-        try {
-            const fname = localStorage.key(0)
-            if (fname === null) {throw "파일이 없습니다."} 
-            else{
-            document.querySelector('#filename').innerHTML = '입력된 파일명: ' + fname
-            }
+            document.querySelector('#filename').innerHTML = '입력된 파일명: ' + csvFileName
         } catch (error) {
-            console.log('데이터 로드 중 오류가 발생했습니다:', error)
-            document.querySelector('#filename').innerHTML = '시간표 파일을 추가해주세요.'
+            console.error('파일을 읽는 중 오류가 발생했습니다:', error);
         }
     </script>
 </body>
