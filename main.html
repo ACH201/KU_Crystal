@@ -45,18 +45,13 @@
     <script>
         try {
             localStorage.clear()
-            const df = await dfd.readCSV("https://raw.githubusercontent.com/ACH201/KU_Crystal/main/database/LectureTable.csv"); // CSV 파일을 DataFrame으로 읽기
-            // DataFrame을 JSON 문자열로 직접 변환하여 local storage에 'DataTable' 키로 저장
-            const dfJSON = dfd.toJSON(df, { format: 'row' }); // DataFrame을 JSON 문자열로 변환                    
-            localStorage.setItem(csvFileName, JSON.stringify(dfJSON));
-            
-            // Optional: 저장 후 콘솔에 메시지 출력
-            console.log('CSV 파일이 local storage에 저장되었습니다.');
-            df.print();
-            window.df = df;
-            df.asType('학년', 'string')
-
-            document.querySelector('#filename').innerHTML = '입력된 파일명: ' + csvFileName
+            dfd.readCSV("https://raw.githubusercontent.com/ACH201/KU_Crystal/main/database/LectureTable.csv")
+               .then(df => {
+                   const dfJSON = dfd.toJSON(df, {format: 'row'});
+                   localStorage.setItem('data', JSON.stringify(dfJSON));
+               }).catch(err => {
+                   console.log(err);
+               })
         } catch (error) {
             console.error('파일을 읽는 중 오류가 발생했습니다:', error);
         }
