@@ -3,12 +3,25 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="page-enter" content="blendTrans(duration=0.3)">
+    <meta http-equiv="page-exit" content="blendTrans(duration=0.3)">
     <script src="https://cdn.jsdelivr.net/npm/danfojs@1.1.2/lib/bundle.min.js"></script>
     <title>강의실 일주일 시간표 조회</title>
     <link rel='stylesheet' href='../css/room_timetable.css' />
+    <style>
+    body {
+      opacity: 1;
+      transition-duration: 1s;
+      transition-property: opacity;
+    }
+
+    body.fade {
+      opacity: 0;
+    }
+    </style>
 </head>
 
-<body>
+<body class="fade">
     <div class="container">
       <!-- 이전 페이지로 돌아가는 버튼 -->
       <button onclick="window.history.back();" id="back-button">
@@ -43,9 +56,7 @@
             <option value="예">예술문화대학</option>
             <option value="공예">공예관</option>
             <option value="사">교육과학관</option>
-            <option value="언어원">언어교육원</option>
             <option value="새">새천년관</option>
-            <option value="종강">종합강의동</option>
             <option value="중장비">중장비 실험동</option>
             <option value="상허관">상허연구관</option>
             <option value="창">창의관</option>
@@ -89,7 +100,13 @@
         </tbody>
       </table>
 
-
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        window.setTimeout(() => {
+          document.body.classList.remove('fade');
+        });
+      });
+    </script>
     <script src="../js/room_timetable.js"></script>
     </div>
 </body>

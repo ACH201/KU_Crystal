@@ -5,9 +5,20 @@
     <script src="https://cdn.jsdelivr.net/npm/danfojs@1.1.2/lib/bundle.min.js"></script>
     <title>교수님 일주일 시간표 조회</title>
     <link rel="stylesheet" href="../css/prof_timetable.css" />
+    <style>
+    body {
+      opacity: 1;
+      transition-duration: 1s;
+      transition-property: opacity;
+    }
+
+    body.fade {
+      opacity: 0;
+    }
+    </style>
   </head>
 
-  <body>
+  <body class="fade">
     <div class="container">
       <!-- 이전 페이지로 돌아가는 버튼 -->
       <button onclick="window.history.back();" id="back-button">
@@ -52,6 +63,13 @@
         </tbody>
       </table>
 
+      <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        window.setTimeout(() => {
+          document.body.classList.remove('fade');
+        });
+      });
+      </script>
       <script src="../js/prof_timetable.js"></script>
     </div>
   </body>

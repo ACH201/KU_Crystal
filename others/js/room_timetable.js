@@ -12,8 +12,8 @@ try {
 
 
 function getRoomList() {
-    try{
-        const room_set = new Set(df.loc({columns : ['강의실']}).values.flat())
+    try {
+        const room_set = new Set(df.loc({ columns: ['강의실'] }).values.flat())
         const room_list = Array.from(room_set).sort()
         return room_list
     } catch (error) {
@@ -26,9 +26,9 @@ function make_timetable(room) {
     timeTableObject.innerHTML = ''
 
     const time_col = ['09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30',
-                '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30']
-    
-    const dayDict = {'월': 0, '화': 1, '수': 2, '목': 3, '금': 4, '토': 5}
+        '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30']
+
+    const dayDict = { '월': 0, '화': 1, '수': 2, '목': 3, '금': 4, '토': 5 }
 
     // Array를 사용하여 6x23 크기의 0으로 초기화된 배열 생성
     let template = Array.from({ length: 6 }, () => Array(23).fill(0));
@@ -39,18 +39,18 @@ function make_timetable(room) {
     let timetable = {};
     let classtable = {};
     let room_rows = [];
-    let fromIndex = df.loc({columns : ['강의실']}).values.flat().indexOf(room);
-    while(fromIndex != -1) {
+    let fromIndex = df.loc({ columns: ['강의실'] }).values.flat().indexOf(room);
+    while (fromIndex != -1) {
         room_rows.push(fromIndex)
-        fromIndex = df.loc({columns : ['강의실']}).values.flat().indexOf(room, fromIndex+1);
+        fromIndex = df.loc({ columns: ['강의실'] }).values.flat().indexOf(room, fromIndex + 1);
     }
     // Danfo.js DataFrame에서 '강의실' 컬럼이 room과 일치하는 행만 필터링하고 반복문 실행
-    for (let i=0; i < room_rows.length; i++) {
+    for (let i = 0; i < room_rows.length; i++) {
         let rowIndex = room_rows[i];
-        let row = df.iloc({rows : [rowIndex]});
+        let row = df.iloc({ rows: [rowIndex] });
 
-        let day = row.loc({columns : ['요일']}).values[0][0];
-        let times = row.loc({columns : ['강의시간']}).values[0][0].split('-');
+        let day = row.loc({ columns: ['요일'] }).values[0][0];
+        let times = row.loc({ columns: ['강의시간'] }).values[0][0].split('-');
         let start_time = parseInt(times[0]) - 1;
         let end_time = parseInt(times[1]);
 
@@ -58,14 +58,14 @@ function make_timetable(room) {
         if (timetable[room]) {
             for (let i = start_time; i < end_time; i++) {
                 timetable[room][dayDict[day]][i] = 1;
-                classtable[room][dayDict[day]][i] = row.loc({columns : ['과목명']}).values[0][0];
+                classtable[room][dayDict[day]][i] = row.loc({ columns: ['과목명'] }).values[0][0];
             }
         } else {
             let copied_template = JSON.parse(JSON.stringify(template));
             let copied_classes = JSON.parse(JSON.stringify(stemplate));
             for (let i = start_time; i < end_time; i++) {
                 copied_template[dayDict[day]][i] = 1;
-                copied_classes[dayDict[day]][i] = row.loc({columns : ['과목명']}).values[0][0];
+                copied_classes[dayDict[day]][i] = row.loc({ columns: ['과목명'] }).values[0][0];
             }
             timetable[room] = copied_template;
             classtable[room] = copied_classes;
@@ -96,7 +96,7 @@ function make_timetable(room) {
         console.error(`${room} not in dataset`);
         return;
     }
-    
+
     for (let line of valueList) {
         let tr = document.createElement('tr');
         for (let cell_data of line) {

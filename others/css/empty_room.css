@@ -67,3 +67,86 @@ td{
   text-align: center;
   border-color: white;
 }
+
+#result {
+  padding: 2em;
+}
+
+.letter {
+  opacity: 0;
+  transform: translateY(-0.25em);
+  display: inline-block;
+  animation: burst_in 3s cubic-bezier(0, 1.62, 1, 1.6) infinite;
+  color: #101820;
+}
+
+@keyframes burst_in {
+  25%, 80% {
+    opacity: 1;
+    transform: translateY(0);
+  }  
+}
+
+#result .letter:nth-of-type(1) {
+  animation-delay: 0.06s;
+}
+
+#result .letter:nth-of-type(2) {
+  animation-delay: 0.12s;
+}
+
+#result .letter:nth-of-type(3) {
+  animation-delay: 0.18s;
+}
+
+#result .letter:nth-of-type(4) {
+  animation-delay: 0.24s;
+}
+
+#result .letter:nth-of-type(5) {
+  animation-delay: 0.3s;
+}
+
+#result .letter:nth-of-type(6) {
+  animation-delay: 0.36s;
+}
+
+#result .letter:nth-of-type(7) {
+  animation-delay: 0.42s;
+}
+
+#result .letter:nth-of-type(8) {
+  animation-delay: 0.48s;
+}
+
+#result .letter:nth-of-type(9) {
+  animation-delay: 0.54s;
+}
+
+#result .letter:nth-of-type(10) {
+  animation-delay: 0.6s;
+}
+
+#result .letter:nth-of-type(11) {
+  animation-delay: 0.66s;
+}
+
+#result .letter:nth-of-type(12) {
+  animation-delay: 0.72s;
+}
+
+#result .letter:nth-of-type(13) {
+  animation-delay: 0.78s;
+}
+
+#result .letter:nth-of-type(14) {
+  animation-delay: 0.84s;
+}
+
+#result .letter:nth-of-type(15) {
+  animation-delay: 0.9s;
+}
+
+#result .letter:nth-of-type(16) {
+  animation-delay: 0.96s;
+}

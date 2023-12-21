@@ -7,23 +7,33 @@ body {
   margin: 0 auto;
   padding: 40px;
 }
+
 .title-container {
-  margin-left: 37%; /* 좌측 여백을 추가합니다 */
-  margin-bottom: 20px; /* 버튼 영역과의 거리를 조정합니다 */
+  margin-left: 37%;
+  /* 좌측 여백을 추가합니다 */
+  margin-bottom: 20px;
+  /* 버튼 영역과의 거리를 조정합니다 */
   width: 400px;
   text-align: left;
 }
+
 .emphasis {
-  font-size: 68px; /* 강조 텍스트에 대한 폰트 크기 */
-  color: #007500; /* 강조 텍스트에 대한 색상 */
-  font-weight: bold; /* 텍스트를 더 두껍게 */
+  font-size: 68px;
+  /* 강조 텍스트에 대한 폰트 크기 */
+  color: #007500;
+  /* 강조 텍스트에 대한 색상 */
+  font-weight: bold;
+  /* 텍스트를 더 두껍게 */
   margin: 0;
   line-height: 1.2;
   line-height: 0.95;
 }
+
 .normal {
-  font-size: 55px; /* 기본 텍스트에 대한 폰트 크기 */
-  color: #000; /* 기본 텍스트에 대한 색상 */
+  font-size: 55px;
+  /* 기본 텍스트에 대한 폰트 크기 */
+  color: #000;
+  /* 기본 텍스트에 대한 색상 */
   margin: 0;
   line-height: 1.2;
   line-height: 0.95;
@@ -37,9 +47,11 @@ body {
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .button:hover {
   background-color: #e8e8e8;
 }
+
 .button {
   display: flex;
   justify-content: space-between;
@@ -52,29 +64,43 @@ body {
   cursor: pointer;
   font-size: 16px;
   color: #333;
-  text-decoration: none; /* If the button is a link */
+  text-decoration: none;
+  /* If the button is a link */
 }
+
 .button-icon-text {
   display: flex;
   align-items: center;
 }
+
 .button-icon {
-  margin-right: 10px; /* Space between the icon and the text */
+  margin-right: 10px;
+  /* Space between the icon and the text */
 }
+
 .button-text {
-  margin-right: auto; /* Pushes the chevron to the right */
+  margin-right: auto;
+  /* Pushes the chevron to the right */
   margin-left: 20px;
   font-size: 25px;
 }
+
 .button-chevron {
-  font-size: 24px; /* Chevron size */
-  color: #333; /* Chevron color */
+  font-size: 24px;
+  /* Chevron size */
+  color: #333;
+  /* Chevron color */
 }
+
 .button::after {
-  content: ">"; /* This is the chevron */
-  font-size: 24px; /* Chevron size */
-  color: lightgrey; /* Chevron color */
+  content: ">";
+  /* This is the chevron */
+  font-size: 24px;
+  /* Chevron size */
+  color: lightgrey;
+  /* Chevron color */
 }
+
 #credit {
-    text-align: center;
+  text-align: center;
 }

@@ -6,8 +6,19 @@
     <script src="https://d3js.org/d3.v6.js"></script>
     <title>시간별 강의 분포 확인</title>
     <link rel="stylesheet" href="../css/lecture_stat.css" />
+    <style>
+    body {
+      opacity: 1;
+      transition-duration: 1s;
+      transition-property: opacity;
+    }
+
+    body.fade {
+      opacity: 0;
+    }
+    </style>
   </head>
-  <body>
+  <body class="fade">
     <div class="container">
       <!-- 이전 페이지로 돌아가는 버튼 -->
       <button onclick="window.history.back();" id="back-button">
@@ -65,9 +76,16 @@
       <!-- 출력 버튼 -->
       <button id="output-button" onclick="button_click_event()">출력</button>
 
-      <h4 id="result"></h4>
+      <div id="result"></div>
       <div id="plot"></div>
 
+      <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        window.setTimeout(() => {
+          document.body.classList.remove('fade');
+        });
+      });
+      </script>
       <script src="../js/lecture_stat.js"></script>
     </div>
   </body>

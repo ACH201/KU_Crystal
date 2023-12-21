@@ -4,8 +4,19 @@
     <title>메인 페이지</title>
     <link rel="stylesheet" type="text/css" href="./others/css/main.css">
     <script src="https://cdn.jsdelivr.net/npm/danfojs@1.1.2/lib/bundle.min.js"></script>
+    <style>
+    body {
+      opacity: 1;
+      transition-duration: 1s;
+      transition-property: opacity;
+    }
+
+    body.fade {
+      opacity: 0;
+    }
+    </style>
 </head>
-<body>
+<body class="fade">
     <div class="title-container">
       <div class="line">
         <span class="emphasis">건</span>
@@ -43,6 +54,11 @@
     <h3 id="credit">Project-X Konkuk 2진법</h3>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            window.setTimeout(() => {
+                document.body.classList.remove('fade');
+            });
+        });
         try {
             localStorage.clear()
             dfd.readCSV("https://raw.githubusercontent.com/ACH201/KU_Crystal/main/database/LectureTable.csv")

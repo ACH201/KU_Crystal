@@ -12,19 +12,19 @@ try {
 
 
 function getProfList() {
-    try{
-        const prof_set = df.loc({columns : ['교수']}).values.flat()
+    try {
+        const prof_set = df.loc({ columns: ['교수'] }).values.flat()
         const prof_splitted = new Set()
 
         prof_set.forEach((i) => {
-          if (i.includes(',')) {
-            let temp = i.trim().replace(/"/g, '').split(',');
-            temp.forEach((j) => {
-              prof_splitted.add(j.trim());
-            });
-          } else {
-            prof_splitted.add(i);
-          }
+            if (i.includes(',')) {
+                let temp = i.trim().replace(/"/g, '').split(',');
+                temp.forEach((j) => {
+                    prof_splitted.add(j.trim());
+                });
+            } else {
+                prof_splitted.add(i);
+            }
         });
         prof_splitted.delete('미배정');
 
@@ -41,9 +41,9 @@ function make_timetable(prof) {
     timeTableObject.innerHTML = ''
 
     const time_col = ['09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30',
-                '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30']
-    
-    const dayDict = {'월': 0, '화': 1, '수': 2, '목': 3, '금': 4, '토': 5}
+        '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30']
+
+    const dayDict = { '월': 0, '화': 1, '수': 2, '목': 3, '금': 4, '토': 5 }
 
     // Array를 사용하여 6x23 크기의 0으로 초기화된 배열 생성
     let template = Array.from({ length: 6 }, () => Array(23).fill(0));
@@ -53,18 +53,18 @@ function make_timetable(prof) {
 
     let timetable = {};
     let classtable = {};
-    let prof_rows = df.loc({columns : ['교수']}).values.flat().map((item, index) => {
-      if(item.includes(prof)) return index;
-      else return -1;
+    let prof_rows = df.loc({ columns: ['교수'] }).values.flat().map((item, index) => {
+        if (item.includes(prof)) return index;
+        else return -1;
     }).filter((item) => item !== -1);
-    
-    // Danfo.js DataFrame에서 '강의실' 컬럼이 room과 일치하는 행만 필터링하고 반복문 실행
-    for (let i=0; i < prof_rows.length; i++) {
-        let rowIndex = prof_rows[i];
-        let row = df.iloc({rows : [rowIndex]});
 
-        let day = row.loc({columns : ['요일']}).values[0][0];
-        let times = row.loc({columns : ['강의시간']}).values[0][0].split('-');
+    // Danfo.js DataFrame에서 '강의실' 컬럼이 room과 일치하는 행만 필터링하고 반복문 실행
+    for (let i = 0; i < prof_rows.length; i++) {
+        let rowIndex = prof_rows[i];
+        let row = df.iloc({ rows: [rowIndex] });
+
+        let day = row.loc({ columns: ['요일'] }).values[0][0];
+        let times = row.loc({ columns: ['강의시간'] }).values[0][0].split('-');
         let start_time = parseInt(times[0]) - 1;
         let end_time = parseInt(times[1]);
 
@@ -72,14 +72,14 @@ function make_timetable(prof) {
         if (timetable[prof]) {
             for (let i = start_time; i < end_time; i++) {
                 timetable[prof][dayDict[day]][i] = 1;
-                classtable[prof][dayDict[day]][i] = row.loc({columns : ['과목명']}).values[0][0] + '\n' + row.loc({columns : ['강의실']}).values[0][0];
+                classtable[prof][dayDict[day]][i] = row.loc({ columns: ['과목명'] }).values[0][0] + '\n' + row.loc({ columns: ['강의실'] }).values[0][0];
             }
         } else {
             let copied_template = JSON.parse(JSON.stringify(template));
             let copied_classes = JSON.parse(JSON.stringify(stemplate));
             for (let i = start_time; i < end_time; i++) {
                 copied_template[dayDict[day]][i] = 1;
-                copied_classes[dayDict[day]][i] = row.loc({columns : ['과목명']}).values[0][0] + '\n' + row.loc({columns : ['강의실']}).values[0][0];
+                copied_classes[dayDict[day]][i] = row.loc({ columns: ['과목명'] }).values[0][0] + '\n' + row.loc({ columns: ['강의실'] }).values[0][0];
             }
             timetable[prof] = copied_template;
             classtable[prof] = copied_classes;
@@ -110,7 +110,7 @@ function make_timetable(prof) {
         console.error(`${prof} not in dataset`);
         return;
     }
-    
+
     for (let line of valueList) {
         let tr = document.createElement('tr');
         for (let cell_data of line) {
@@ -126,18 +126,18 @@ let profs = getProfList();
 console.log(profs);
 let dataset = document.querySelector("#searchOptions");
 
-profs.forEach((option_value) => {    
-  let option = document.createElement('option');
-  option.value = option_value;
-  dataset.appendChild(option);    
+profs.forEach((option_value) => {
+    let option = document.createElement('option');
+    option.value = option_value;
+    dataset.appendChild(option);
 });
 
 function button_click_event() {
     //let selected = document.querySelector("#buildings").value;
     let input_val = document.querySelector("#user-input").value.trim();
     if (input_val === '미배정') {
-      document.querySelector("#user-input").value = '-'
-      return
+        document.querySelector("#user-input").value = '-'
+        return
     }
     document.querySelector("#prof_text").innerText = input_val + "교수님";
     let prof = input_val;

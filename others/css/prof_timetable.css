@@ -50,7 +50,8 @@ html {
 #timetable {
   width: auto;
   border-collapse: collapse;
-  table-layout: fixed; /* 셀의 너비를 고정 */
+  table-layout: fixed;
+  /* 셀의 너비를 고정 */
   margin-bottom: 40px;
 }
 
