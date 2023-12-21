@@ -9,9 +9,7 @@ body {
 }
 
 .title-container {
-  margin-left: 37%;
-  /* 좌측 여백을 추가합니다 */
-  margin-bottom: 20px;
+  margin: 20px auto;
   /* 버튼 영역과의 거리를 조정합니다 */
   width: 400px;
   text-align: left;
