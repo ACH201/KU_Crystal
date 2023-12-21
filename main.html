@@ -57,22 +57,24 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.key(0) !== 'data') {
+                try {
+                    localStorage.clear()
+                    dfd.readCSV("https://raw.githubusercontent.com/ACH201/KU_Crystal/main/database/LectureTable.csv")
+                       .then(df => {
+                           const dfJSON = dfd.toJSON(df, {format: 'row'});
+                           localStorage.setItem('data', JSON.stringify(dfJSON));
+                       }).catch(err => {
+                           console.log(err);
+                       })
+                } catch (error) {
+                    console.error('파일을 읽는 중 오류가 발생했습니다:', error);
+                }
+            }
             window.setTimeout(() => {
                 document.body.classList.remove('fade');
             });
         });
-        try {
-            localStorage.clear()
-            dfd.readCSV("https://raw.githubusercontent.com/ACH201/KU_Crystal/main/database/LectureTable.csv")
-               .then(df => {
-                   const dfJSON = dfd.toJSON(df, {format: 'row'});
-                   localStorage.setItem('data', JSON.stringify(dfJSON));
-               }).catch(err => {
-                   console.log(err);
-               })
-        } catch (error) {
-            console.error('파일을 읽는 중 오류가 발생했습니다:', error);
-        }
     </script>
 </body>
 </html>
