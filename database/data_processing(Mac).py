@@ -60,7 +60,7 @@ def resource_path(relatvie_path):
     return os.path.join(base_path, relatvie_path)
 
 
-dset = data_cleaning(resource_path('Desktop/KU_Crystal/database/종합강의시간표내역.xlsx'))
-filepath = resource_path('Desktop/KU_Crystal/database/LectureTable(' + str(datetime.now().date()) + ').csv')
+dset = data_cleaning(resource_path('종합강의시간표내역.xlsx'))
+filepath = resource_path('LectureTable(' + str(datetime.now().date()) + ').csv')
 
 dset.to_csv(filepath, index=False)
