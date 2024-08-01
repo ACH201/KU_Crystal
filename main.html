@@ -58,7 +58,7 @@
             if (localStorage.key(0) !== 'data(2024.1)' || localStorage.key(0) == null) {
                 try {
                     localStorage.clear()
-                    dfd.readCSV("https://raw.githubusercontent.com/ACH201/KU_Crystal/main/database/LectureTable.csv")
+                    dfd.readCSV("https://raw.githubusercontent.com/ACH201/KU_Crystal/main/database/LectureTable(2024-08-01).csv")
                        .then(df => {
                            const dfJSON = dfd.toJSON(df, {format: 'row'});
                            localStorage.setItem('data', JSON.stringify(dfJSON));
